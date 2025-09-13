@@ -3,17 +3,22 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "lucide-react": "^0.544.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "vite": "^7.1.5"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.1",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
-    "autoprefixer": "^10.4.14"
+    "tailwindcss": "^3.4.1"
   },
   "scripts": {
     "start": "npx serve public",
-    "build": "echo 'Static site, just use /public for GitHub Pages'"
+    "build": "vite build"
   }
 }
