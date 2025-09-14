@@ -1,4 +1,5 @@
-import React from 'react';
+// ...existing code...
+// @ts-ignore
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Heart, Award, Calendar, BookOpen, Stethoscope } from 'lucide-react';

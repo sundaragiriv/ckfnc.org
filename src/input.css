@@ -15,6 +15,3 @@
 .animate-pixie {
 	animation: pixie 2.2s ease-in-out infinite;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

@@ -1,4 +1,4 @@
-import React from 'react';
+// ...existing code...
 import { Heart, Shield, DollarSign, Users, Gift, Calendar } from 'lucide-react';
 
 const impactBreakdown = [
