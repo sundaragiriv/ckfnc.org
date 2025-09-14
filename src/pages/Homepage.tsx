@@ -102,27 +102,29 @@ const Homepage = () => {
             {/* Animated floating hearts with pixie dust, random shimmer and motion */}
             {[...Array(9)].map((_, i) => {
               // Randomize animation duration, delay, direction, and position
-              const duration = 2.5 + Math.random() * 2.5;
-              const delay = Math.random() * 2.5;
+              const duration = 5 + Math.random() * 4;
+              const delay = Math.random() * 3;
               const x = 5 + Math.random() * 80;
               const y = 10 + Math.random() * 50;
               const scale = 0.7 + Math.random() * 0.7;
               const rotate = Math.random() * 360;
-              const shimmer = Math.random() > 0.5 ? 'shimmer-heart' : '';
+              // Alternate lighter pink and purple
+              const heartColor = i % 2 === 0 ? '#ffb6e6' : '#d1b3ff';
               return (
                 <svg
                   key={i}
-                  className={`absolute animate-float-heart ${shimmer}`}
+                  className="absolute animate-bounce-heart"
                   style={{
                     left: `${x}%`,
                     top: `${y}%`,
                     width: 40 * scale,
                     height: 40 * scale,
                     zIndex: 2,
-                    filter: 'drop-shadow(0 0 8px #e63946)',
-                    animationDuration: `${duration}s`,
+                    filter: `drop-shadow(0 0 8px ${heartColor})`,
                     animationDelay: `${delay}s`,
-                    transform: `rotate(${rotate}deg)`
+                    animationDuration: `${duration}s`,
+                    transform: `rotate(${rotate}deg)`,
+                    ['--bounce-duration' as any]: `${duration}s`
                   }}
                   viewBox="0 0 48 48"
                   fill="none"
@@ -130,11 +132,11 @@ const Homepage = () => {
                 >
                   <path
                     d="M24 44s-16-10.7-16-22A8 8 0 0 1 24 12a8 8 0 0 1 16 10c0 11.3-16 22-16 22z"
-                    fill="#e63946"
-                    opacity={0.9}
+                    fill={heartColor}
+                    opacity={0.7}
                   />
-                  <circle cx={36 - i * 2} cy={8 + i * 3} r={2 + (i % 2)} fill="#fff" opacity={0.7} />
-                  <circle cx={12 + i * 2} cy={40 - i * 3} r={1.5 + (i % 2)} fill="#fff" opacity={0.5} />
+                  <circle cx={36 - i * 2} cy={8 + i * 3} r={2 + (i % 2)} fill="#fff" opacity={0.5} />
+                  <circle cx={12 + i * 2} cy={40 - i * 3} r={1.5 + (i % 2)} fill="#fff" opacity={0.3} />
                 </svg>
               );
             })}
