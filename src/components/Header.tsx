@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart, Phone, Mail } from 'lucide-react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,16 +26,16 @@ const Header = () => {
           <div className="flex justify-between items-center text-sm">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-1">
-                <Phone className="h-4 w-4" />
-                <span>(555) 123-4567</span>
+                <Phone className="h-4 w-4 text-gray-800" />
+                <span className="text-gray-800">610-457-3193</span>
               </div>
               <div className="flex items-center space-x-1">
-                <Mail className="h-4 w-4" />
-                <span>info@nccancerkids1st.org</span>
+                <Mail className="h-4 w-4 text-gray-800" />
+                <span className="text-gray-800">info@ckfnc.org</span>
               </div>
             </div>
             <div className="hidden md:block">
-              <span className="text-sm">Making Hope Happen • One Child at a Time</span>
+              <span className="text-sm text-gray-800">Making Hope Happen • One Child at a Time</span>
             </div>
           </div>
         </div>
@@ -46,13 +46,15 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 rounded-full">
-              <Heart className="h-8 w-8 text-white" />
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 rounded-full flex items-center justify-center border-2 border-gray-300" style={{ minWidth: 56, minHeight: 56 }}>
+              <img
+                src="/logo.png"
+                alt="Kids First of NC Logo"
+                className="h-12 w-12 rounded-full object-contain bg-white border border-gray-200 p-1"
+                style={{ background: '#fff', display: 'block' }}
+              />
             </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">NC Cancer Kids 1st</h1>
-              <p className="text-sm text-gray-600">Supporting Children • Empowering Families</p>
-            </div>
+            <span className="font-heading text-xl font-bold text-primary ml-2 hidden sm:inline">Kids First of NC</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,7 +64,7 @@ const Header = () => {
                 key={item.name}
                 to={item.href}
                 className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  isCurrentPage(item.href) ? 'text-blue-600' : 'text-gray-700'
+                  isCurrentPage(item.href) ? 'text-blue-600' : 'text-gray-800'
                 }`}
               >
                 {item.name}
@@ -70,7 +72,7 @@ const Header = () => {
             ))}
             <Link
               to="/donate"
-              className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-6 py-2 rounded-full font-medium hover:from-pink-600 hover:to-orange-600 transition-all transform hover:scale-105"
+              className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-6 py-2 rounded-full font-medium hover:from-pink-600 hover:to-orange-600 transition-all transform hover:scale-105 border-2 border-white"
             >
               Donate Now
             </Link>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Heart, Award, Calendar, BookOpen, Stethoscope } from 'lucide-react';
 
@@ -47,51 +48,183 @@ const Homepage = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <>
+      <Helmet>
+        <title>Cancer Kids First NC | Hope Starts with You</title>
+        <meta name="description" content="Youth-led nonprofit bringing hope and care to children with cancer in North Carolina. Join us to make a difference!" />
+        <meta property="og:title" content="Cancer Kids First NC" />
+        <meta property="og:description" content="Youth-led nonprofit bringing hope and care to children with cancer in North Carolina." />
+        <meta property="og:image" content="https://ckfnc.org/logo.png" />
+        <meta property="og:url" content="https://ckfnc.org/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="bg-earth text-text font-body">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Hope Starts with <span className="text-yellow-300">You</span>
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 leading-relaxed">
-                Supporting children with cancer and their families through comprehensive care, 
-                research, and unwavering community support.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link
-                  to="/donate"
-                  className="bg-gradient-to-r from-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-pink-600 hover:to-orange-600 transition-all transform hover:scale-105 inline-flex items-center justify-center"
-                >
-                  Make a Donation
-                  <Heart className="ml-2 h-5 w-5" />
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-purple-600 transition-all inline-flex items-center justify-center"
-                >
-                  Get Involved
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </div>
+    <section className="relative bg-gradient-to-r from-peach via-coral to-teal text-white py-20">
+      <div className="absolute inset-0 bg-black opacity-10"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-tight font-heading">
+              <span className="block text-yellow-200">Kids First of NC</span>
+              <span className="block text-white text-lg md:text-2xl font-normal">NC CKF (Cancer Kids First) Chapter</span>
+              <span className="block text-white mt-2">Hope Starts with <span className="text-yellow-300">You</span></span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 leading-relaxed">
+              Youth-led. Community-powered. Supporting children with cancer and their families through care, research, and hope.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/donate"
+                className="bg-gradient-to-r from-coral to-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:from-primary hover:to-coral transition-all transform hover:scale-105 inline-flex items-center justify-center border-2 border-coral"
+              >
+                Donate Now
+                <Heart className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                to="/get-involved"
+                className="border-2 border-coral text-coral px-8 py-4 rounded-full font-semibold text-lg bg-white hover:bg-coral hover:text-white transition-all inline-flex items-center justify-center shadow-lg"
+              >
+                Volunteer Today
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </div>
-            <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/8088495/pexels-photo-8088495.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Children playing together"
-                className="rounded-2xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white text-gray-900 p-6 rounded-xl shadow-lg">
-                <p className="text-2xl font-bold text-blue-600">2,500+</p>
-                <p className="text-sm font-medium">Children Helped</p>
+            {/* Fundraising Progress Bar */}
+            <div className="mt-8">
+              <div className="text-lg font-semibold mb-2">Fundraising Goal: <span className="text-yellow-200">$50,000</span></div>
+              <div className="w-full bg-white rounded-full h-6 shadow-inner">
+                <div className="bg-gradient-to-r from-accent to-primary h-6 rounded-full" style={{ width: '62%' }}></div>
               </div>
+              <div className="text-sm mt-1 text-white">$31,000 raised by donors & celebrities!</div>
+            </div>
+          </div>
+          <div className="relative flex justify-center lg:justify-end h-64 overflow-visible">
+            {/* Animated floating hearts with pixie dust, random shimmer and motion */}
+            {[...Array(9)].map((_, i) => {
+              // Randomize animation duration, delay, direction, and position
+              const duration = 2.5 + Math.random() * 2.5;
+              const delay = Math.random() * 2.5;
+              const x = 5 + Math.random() * 80;
+              const y = 10 + Math.random() * 50;
+              const scale = 0.7 + Math.random() * 0.7;
+              const rotate = Math.random() * 360;
+              const shimmer = Math.random() > 0.5 ? 'shimmer-heart' : '';
+              return (
+                <svg
+                  key={i}
+                  className={`absolute animate-float-heart ${shimmer}`}
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    width: 40 * scale,
+                    height: 40 * scale,
+                    zIndex: 2,
+                    filter: 'drop-shadow(0 0 8px #e63946)',
+                    animationDuration: `${duration}s`,
+                    animationDelay: `${delay}s`,
+                    transform: `rotate(${rotate}deg)`
+                  }}
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M24 44s-16-10.7-16-22A8 8 0 0 1 24 12a8 8 0 0 1 16 10c0 11.3-16 22-16 22z"
+                    fill="#e63946"
+                    opacity={0.9}
+                  />
+                  <circle cx={36 - i * 2} cy={8 + i * 3} r={2 + (i % 2)} fill="#fff" opacity={0.7} />
+                  <circle cx={12 + i * 2} cy={40 - i * 3} r={1.5 + (i % 2)} fill="#fff" opacity={0.5} />
+                </svg>
+              );
+            })}
+            {/* Pixie dust sparkles, random shimmer and motion */}
+            {[...Array(14)].map((_, i) => {
+              const duration = 1.5 + Math.random() * 2.5;
+              const delay = Math.random() * 2.5;
+              const x = 5 + Math.random() * 80;
+              const y = 10 + Math.random() * 50;
+              const scale = 0.7 + Math.random() * 1.2;
+              return (
+                <span
+                  key={i}
+                  className="absolute animate-pixie"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    width: 8 * scale,
+                    height: 8 * scale,
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, #FFF 60%, #FFB4A2 100%)',
+                    opacity: 0.7,
+                    zIndex: 1,
+                    boxShadow: '0 0 12px #FFF, 0 0 24px #FFB4A2',
+                    animationDuration: `${duration}s`,
+                    animationDelay: `${delay}s`
+                  }}
+                ></span>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  <div className="w-full h-2 bg-gradient-to-r from-peach via-coral to-teal my-12 rounded-full opacity-60"></div>
+  {/* Youth-Led Section */}
+    <section className="py-16 bg-earth">
+      <div className="max-w-5xl mx-auto px-4">
+        <h2 className="text-3xl font-heading font-bold text-accent mb-6 text-center">Youth-Led Impact</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <p className="text-lg mb-4">Our volunteers are high school and college students who bring energy, creativity, and compassion to every program. Watch their stories and see how youth leadership is changing lives!</p>
+            <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.youtube.com/embed/1Q8fG0TtVAY"
+                title="Youth Volunteer Story"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="bg-peach p-6 rounded-xl shadow-md">
+              <p className="font-semibold text-accent mb-2">"Volunteering with CKFNC has given me purpose and lifelong friends."</p>
+              <span className="text-sm text-secondary">— Maya, High School Volunteer</span>
+            </div>
+            <div className="bg-peach p-6 rounded-xl shadow-md">
+              <p className="font-semibold text-accent mb-2">"We get to make a real difference for kids who need hope."</p>
+              <span className="text-sm text-secondary">— Alex, College Volunteer</span>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    {/* Recent Blogs & Events Preview */}
+    <section className="py-16 bg-peach">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl font-heading font-bold text-accent mb-8 text-center">Latest Stories & Upcoming Events</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Example Blog/Event Cards */}
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Toy Drive Success!</h3>
+            <p className="text-secondary mb-2">Over 500 toys donated to local hospitals in August.</p>
+            <Link to="/programs" className="text-accent font-semibold hover:underline">Learn More</Link>
+          </div>
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Card Making Event</h3>
+            <p className="text-secondary mb-2">Join us September 20th to create cards for kids in treatment.</p>
+            <Link to="/events" className="text-accent font-semibold hover:underline">Sign Up</Link>
+          </div>
+          <div className="bg-white rounded-xl shadow-md p-6">
+            <h3 className="font-heading text-xl font-bold text-primary mb-2">Meet Our Youth Leaders</h3>
+            <p className="text-secondary mb-2">Read interviews with CKFNC volunteers making a difference.</p>
+            <Link to="/blogs" className="text-accent font-semibold hover:underline">Read Blog</Link>
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* Stats Section */}
       <section className="py-16 bg-gray-50">
@@ -121,7 +254,7 @@ const Homepage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {programs.map((program, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-earth rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <img
                   src={program.image}
                   alt={program.title}
@@ -155,7 +288,7 @@ const Homepage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {stories.map((story, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-earth rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow">
                 <div className="flex items-center mb-6">
                   <img
                     src={story.image}
@@ -216,7 +349,7 @@ const Homepage = () => {
                 image: 'https://images.pexels.com/photos/3662953/pexels-photo-3662953.jpeg?auto=compress&cs=tinysrgb&w=400'
               }
             ].map((event, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-earth rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
                 <img
                   src={event.image}
                   alt={event.title}
@@ -281,6 +414,7 @@ const Homepage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

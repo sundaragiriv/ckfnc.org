@@ -14,7 +14,8 @@ const Footer = () => {
                 <Heart className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">NC Cancer Kids 1st</h3>
+                <h3 className="text-xl font-bold">Kids First of NC</h3>
+                <p className="text-xs font-semibold text-secondary">CKF (Cancer Kids First) NC Chapter</p>
                 <p className="text-sm text-gray-400">501(c)(3) Nonprofit</p>
               </div>
             </div>
@@ -67,14 +68,14 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-400 text-sm">123 Hope Street, Charlotte, NC 28202</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-400 text-sm">(555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-gray-400" />
-                <span className="text-gray-400 text-sm">info@nccancerkids1st.org</span>
-              </div>
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4 text-gray-400" />
+                  <span className="text-gray-400 text-sm">610-457-3193</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-4 w-4 text-gray-400" />
+                  <span className="text-gray-400 text-sm">info@ckfnc.org</span>
+                </div>
             </div>
             <div className="mt-4">
               <Link
