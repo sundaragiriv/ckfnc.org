@@ -5,7 +5,14 @@ export default function Navbar() {
   return (
     <nav className="bg-peach py-4 px-6 flex items-center justify-between shadow-md">
       <div className="flex items-center gap-2">
-  <img src="../logo.png" alt="CKFNC Logo" className="h-10 w-10 rounded-full" />
+  <img 
+    src="../logo.png" 
+    alt="CKFNC Logo" 
+    className="h-10 w-10 rounded-full" 
+    onError={(e) => {
+      e.currentTarget.style.display = 'none';
+    }}
+  />
         <span className="font-heading text-xl font-bold text-coral">Cancer Kids First of NC</span>
       </div>
       <div className="hidden md:flex gap-6 font-heading text-blue">

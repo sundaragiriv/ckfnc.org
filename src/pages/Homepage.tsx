@@ -1,10 +1,31 @@
-// ...existing code...
-// @ts-ignore
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Heart, Award, Calendar, BookOpen, Stethoscope } from 'lucide-react';
+import { useMemo } from 'react';
 
 const Homepage = () => {
+  // Memoize animation values to prevent re-calculation on every render
+  const heartAnimations = useMemo(() => 
+    [...Array(9)].map((_, i) => ({
+      duration: 5 + Math.random() * 4,
+      delay: Math.random() * 3,
+      x: 5 + Math.random() * 80,
+      y: 10 + Math.random() * 50,
+      scale: 0.7 + Math.random() * 0.7,
+      rotate: Math.random() * 360,
+      color: i % 2 === 0 ? '#ffb6e6' : '#d1b3ff'
+    })), []
+  );
+
+  const pixieAnimations = useMemo(() => 
+    [...Array(14)].map(() => ({
+      duration: 1.5 + Math.random() * 2.5,
+      delay: Math.random() * 2.5,
+      x: 5 + Math.random() * 80,
+      y: 10 + Math.random() * 50,
+      scale: 0.7 + Math.random() * 1.2
+    })), []
+  );
   const stats = [
     { number: '2,500+', label: 'Children Helped', icon: Users },
     { number: '15', label: 'Years of Service', icon: Award },
@@ -101,31 +122,21 @@ const Homepage = () => {
           </div>
           <div className="relative flex justify-center lg:justify-end h-64 overflow-visible">
             {/* Animated floating hearts with pixie dust, random shimmer and motion */}
-            {[...Array(9)].map((_, i) => {
-              // Randomize animation duration, delay, direction, and position
-              const duration = 5 + Math.random() * 4;
-              const delay = Math.random() * 3;
-              const x = 5 + Math.random() * 80;
-              const y = 10 + Math.random() * 50;
-              const scale = 0.7 + Math.random() * 0.7;
-              const rotate = Math.random() * 360;
-              // Alternate lighter pink and purple
-              const heartColor = i % 2 === 0 ? '#ffb6e6' : '#d1b3ff';
-              return (
+            {heartAnimations.map((anim, i) => (
                 <svg
                   key={i}
                   className="absolute animate-bounce-heart"
                   style={{
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    width: 40 * scale,
-                    height: 40 * scale,
+                    left: `${anim.x}%`,
+                    top: `${anim.y}%`,
+                    width: 40 * anim.scale,
+                    height: 40 * anim.scale,
                     zIndex: 2,
-                    filter: `drop-shadow(0 0 8px ${heartColor})`,
-                    animationDelay: `${delay}s`,
-                    animationDuration: `${duration}s`,
-                    transform: `rotate(${rotate}deg)`,
-                    ['--bounce-duration' as any]: `${duration}s`
+                    filter: `drop-shadow(0 0 8px ${anim.color})`,
+                    animationDelay: `${anim.delay}s`,
+                    animationDuration: `${anim.duration}s`,
+                    transform: `rotate(${anim.rotate}deg)`,
+                    ['--bounce-duration' as any]: `${anim.duration}s`
                   }}
                   viewBox="0 0 48 48"
                   fill="none"
@@ -133,41 +144,33 @@ const Homepage = () => {
                 >
                   <path
                     d="M24 44s-16-10.7-16-22A8 8 0 0 1 24 12a8 8 0 0 1 16 10c0 11.3-16 22-16 22z"
-                    fill={heartColor}
+                    fill={anim.color}
                     opacity={0.7}
                   />
                   <circle cx={36 - i * 2} cy={8 + i * 3} r={2 + (i % 2)} fill="#fff" opacity={0.5} />
                   <circle cx={12 + i * 2} cy={40 - i * 3} r={1.5 + (i % 2)} fill="#fff" opacity={0.3} />
                 </svg>
-              );
-            })}
+            ))}
             {/* Pixie dust sparkles, random shimmer and motion */}
-            {[...Array(14)].map((_, i) => {
-              const duration = 1.5 + Math.random() * 2.5;
-              const delay = Math.random() * 2.5;
-              const x = 5 + Math.random() * 80;
-              const y = 10 + Math.random() * 50;
-              const scale = 0.7 + Math.random() * 1.2;
-              return (
+            {pixieAnimations.map((anim, i) => (
                 <span
                   key={i}
                   className="absolute animate-pixie"
                   style={{
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    width: 8 * scale,
-                    height: 8 * scale,
+                    left: `${anim.x}%`,
+                    top: `${anim.y}%`,
+                    width: 8 * anim.scale,
+                    height: 8 * anim.scale,
                     borderRadius: '50%',
                     background: 'radial-gradient(circle, #FFF 60%, #FFB4A2 100%)',
                     opacity: 0.7,
                     zIndex: 1,
                     boxShadow: '0 0 12px #FFF, 0 0 24px #FFB4A2',
-                    animationDuration: `${duration}s`,
-                    animationDelay: `${delay}s`
+                    animationDuration: `${anim.duration}s`,
+                    animationDelay: `${anim.delay}s`
                   }}
                 ></span>
-              );
-            })}
+            ))}
           </div>
         </div>
       </div>
@@ -262,6 +265,9 @@ const Homepage = () => {
                   src={program.image}
                   alt={program.title}
                   className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjNmNGY2Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5YTNhZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBBdmFpbGFibGU8L3RleHQ+PC9zdmc+';
+                  }}
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">{program.title}</h3>
@@ -297,6 +303,9 @@ const Homepage = () => {
                     src={story.image}
                     alt={story.name}
                     className="w-16 h-16 rounded-full object-cover mr-4"
+                    onError={(e) => {
+                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIzMiIgY3k9IjMyIiByPSIzMiIgZmlsbD0iI2YzZjRmNiIvPjxwYXRoIGQ9Im0yNiAyNmE2IDYgMCAxIDEgMTIgMHY0YTEwIDEwIDAgMCAxLTEyIDB2LTR6IiBmaWxsPSIjOTlhM2FmIi8+PC9zdmc+';
+                    }}
                   />
                   <div>
                     <h3 className="text-xl font-semibold text-gray-900">{story.name}</h3>

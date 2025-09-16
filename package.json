@@ -16,12 +16,16 @@
     "@types/react-dom": "^19.1.9",
     "@types/react-helmet": "^6.1.11",
     "autoprefixer": "^10.4.14",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "start": "npx serve public",
+    "start": "vite",
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   }
 }
