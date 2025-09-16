@@ -1,0 +1,17 @@
+# Cancer Kids First NC - humans.txt
+
+/* TEAM */
+Organization: Cancer Kids First NC
+Website: https://ckfnc.org
+Contact: info@ckfnc.org
+Location: North Carolina, USA
+
+/* THANKS */
+Built with: React, Vite, Tailwind CSS
+Hosting: GitHub Pages
+
+/* SITE */
+Last update: 2024/12/19
+Standards: HTML5, CSS3, ES6+
+Components: React, TypeScript
+IDE: Various
