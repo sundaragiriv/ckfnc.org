@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build && copy public\\simple.html dist\\index.html",
+    "build": "vite build && cp public/simple.html dist/index.html",
     "dev": "vite",
     "preview": "vite preview",
     "predeploy": "npm run build",
