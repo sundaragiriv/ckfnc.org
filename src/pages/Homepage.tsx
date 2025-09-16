@@ -18,12 +18,23 @@ const Homepage = () => {
   );
 
   const pixieAnimations = useMemo(() => 
-    [...Array(14)].map(() => ({
-      duration: 1.5 + Math.random() * 2.5,
-      delay: Math.random() * 2.5,
-      x: 5 + Math.random() * 80,
-      y: 10 + Math.random() * 50,
-      scale: 0.7 + Math.random() * 1.2
+    [...Array(20)].map(() => ({
+      duration: 1.8 + Math.random() * 2,
+      delay: Math.random() * 3,
+      x: 5 + Math.random() * 85,
+      y: 5 + Math.random() * 60,
+      scale: 0.5 + Math.random() * 1,
+      color: Math.random() > 0.5 ? '#FFE4E1' : '#E6E6FA'
+    })), []
+  );
+
+  const sparkleAnimations = useMemo(() => 
+    [...Array(12)].map(() => ({
+      duration: 1.2 + Math.random() * 1.5,
+      delay: Math.random() * 2,
+      x: 10 + Math.random() * 75,
+      y: 15 + Math.random() * 45,
+      scale: 0.3 + Math.random() * 0.8
     })), []
   );
   const stats = [
@@ -151,7 +162,7 @@ const Homepage = () => {
                   <circle cx={12 + i * 2} cy={40 - i * 3} r={1.5 + (i % 2)} fill="#fff" opacity={0.3} />
                 </svg>
             ))}
-            {/* Pixie dust sparkles, random shimmer and motion */}
+            {/* Pixie dust particles */}
             {pixieAnimations.map((anim, i) => (
                 <span
                   key={i}
@@ -159,17 +170,37 @@ const Homepage = () => {
                   style={{
                     left: `${anim.x}%`,
                     top: `${anim.y}%`,
-                    width: 8 * anim.scale,
-                    height: 8 * anim.scale,
+                    width: 6 * anim.scale,
+                    height: 6 * anim.scale,
                     borderRadius: '50%',
-                    background: 'radial-gradient(circle, #FFF 60%, #FFB4A2 100%)',
-                    opacity: 0.7,
+                    background: `radial-gradient(circle, #FFF 40%, ${anim.color} 100%)`,
+                    opacity: 0.8,
                     zIndex: 1,
-                    boxShadow: '0 0 12px #FFF, 0 0 24px #FFB4A2',
+                    boxShadow: `0 0 8px #FFF, 0 0 16px ${anim.color}`,
                     animationDuration: `${anim.duration}s`,
                     animationDelay: `${anim.delay}s`
                   }}
                 ></span>
+            ))}
+            {/* Sparkle effects */}
+            {sparkleAnimations.map((anim, i) => (
+                <div
+                  key={`sparkle-${i}`}
+                  className="absolute animate-sparkle"
+                  style={{
+                    left: `${anim.x}%`,
+                    top: `${anim.y}%`,
+                    width: 4 * anim.scale,
+                    height: 4 * anim.scale,
+                    zIndex: 3,
+                    animationDuration: `${anim.duration}s`,
+                    animationDelay: `${anim.delay}s`
+                  }}
+                >
+                  <div className="w-full h-full bg-white" style={{
+                    clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)'
+                  }}></div>
+                </div>
             ))}
           </div>
         </div>
