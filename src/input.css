@@ -1,3 +1,10 @@
+/* Fix for webkit-text-size-adjust deprecation warning */
+html,
+:host {
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%; /* Fallback for older browsers */
+}
+
 @keyframes bounce-heart {
 	0% { transform: translateY(0) scale(1); opacity: 1; }
 	40% { transform: translateY(-18px) scale(1.08); opacity: 0.95; }

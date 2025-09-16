@@ -1,1 +1,0 @@
-// Removed duplicate Footer.js to resolve Vite build error. Use Footer.tsx instead.
