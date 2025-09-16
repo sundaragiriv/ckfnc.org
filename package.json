@@ -11,6 +11,7 @@
     "react-router-dom": "^6.22.3",
     "vite": "^7.1.5"
   },
+  "type": "module",
   "devDependencies": {
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
@@ -23,7 +24,7 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build && cp public/simple.html dist/index.html",
+    "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
     "predeploy": "npm run build",
