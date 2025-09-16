@@ -13,7 +13,7 @@ import Donate from './pages/Donate';
 
 function App() {
   return (
-    <Router basename="/ckfnc.org">
+    <Router>
   <div className="min-h-screen bg-earth text-text font-body px-2 sm:px-0">
         <Header />
         <main>
