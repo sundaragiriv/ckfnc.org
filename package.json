@@ -18,7 +18,8 @@
     "autoprefixer": "^10.4.14",
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "terser": "^5.44.0"
   },
   "scripts": {
     "start": "vite",
