@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+
 import { ArrowRight, Users, Heart, Award, Calendar, BookOpen, Stethoscope } from 'lucide-react';
 import { useMemo } from 'react';
 
@@ -48,20 +48,17 @@ const Homepage = () => {
     {
       title: 'Family Support Services',
       description: 'Comprehensive support for families navigating childhood cancer diagnosis and treatment.',
-      image: 'https://images.pexels.com/photos/8088495/pexels-photo-8088495.jpeg?auto=compress&cs=tinysrgb&w=600',
-      link: '/what-we-do'
+      image: 'https://images.pexels.com/photos/8088495/pexels-photo-8088495.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
       title: 'Research & Innovation',
       description: 'Funding cutting-edge research to improve treatment outcomes and find better cures.',
-      image: 'https://images.pexels.com/photos/3952241/pexels-photo-3952241.jpeg?auto=compress&cs=tinysrgb&w=600',
-      link: '/research'
+      image: 'https://images.pexels.com/photos/3952241/pexels-photo-3952241.jpeg?auto=compress&cs=tinysrgb&w=600'
     },
     {
       title: 'Community Events',
       description: 'Bringing hope and joy through special events and activities for children and families.',
-      image: 'https://images.pexels.com/photos/1693095/pexels-photo-1693095.jpeg?auto=compress&cs=tinysrgb&w=600',
-      link: '/events'
+      image: 'https://images.pexels.com/photos/1693095/pexels-photo-1693095.jpeg?auto=compress&cs=tinysrgb&w=600'
     }
   ];
 
@@ -107,20 +104,20 @@ const Homepage = () => {
               Youth-led. Community-powered. Supporting children with cancer and their families through care, research, and hope.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/donate"
+              <a
+                href="#donate"
                 className="bg-gradient-to-r from-coral to-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:from-primary hover:to-coral transition-all transform hover:scale-105 inline-flex items-center justify-center border-2 border-coral"
               >
                 Donate Now
                 <Heart className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/get-involved"
+              </a>
+              <a
+                href="#volunteer"
                 className="border-2 border-coral text-coral px-8 py-4 rounded-full font-semibold text-lg bg-white hover:bg-coral hover:text-white transition-all inline-flex items-center justify-center shadow-lg"
               >
                 Volunteer Today
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </a>
             </div>
             {/* Fundraising Progress Bar */}
             <div className="mt-8">
