@@ -1,5 +1,3 @@
-// ...existing code...
-import { Link } from 'react-router-dom';
 import { Heart, Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -40,11 +38,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><Link to="/who-we-are" className="text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/what-we-do" className="text-gray-400 hover:text-white transition-colors">Our Programs</Link></li>
-              <li><Link to="/events" className="text-gray-400 hover:text-white transition-colors">Events</Link></li>
-              <li><Link to="/blogs" className="text-gray-400 hover:text-white transition-colors">Stories</Link></li>
-              <li><Link to="/research" className="text-gray-400 hover:text-white transition-colors">Research</Link></li>
+              <li><a href="#about" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#programs" className="text-gray-400 hover:text-white transition-colors">Our Programs</a></li>
+              <li><a href="#events" className="text-gray-400 hover:text-white transition-colors">Events</a></li>
+              <li><a href="#stories" className="text-gray-400 hover:text-white transition-colors">Stories</a></li>
+              <li><a href="#research" className="text-gray-400 hover:text-white transition-colors">Research</a></li>
             </ul>
           </div>
 
@@ -52,11 +50,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Get Involved</h4>
             <ul className="space-y-2">
-              <li><Link to="/get-involved#volunteer" className="text-gray-400 hover:text-white transition-colors">Volunteer</Link></li>
-              <li><Link to="/donate" className="text-gray-400 hover:text-white transition-colors">Donate</Link></li>
-              <li><Link to="/get-involved#corporate" className="text-gray-400 hover:text-white transition-colors">Corporate Partners</Link></li>
-              <li><Link to="/get-involved#fundraising" className="text-gray-400 hover:text-white transition-colors">Fundraising</Link></li>
-              <li><Link to="/get-involved#contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link></li>
+              <li><a href="#volunteer" className="text-gray-400 hover:text-white transition-colors">Volunteer</a></li>
+              <li><a href="#donate" className="text-gray-400 hover:text-white transition-colors">Donate</a></li>
+              <li><a href="#corporate" className="text-gray-400 hover:text-white transition-colors">Corporate Partners</a></li>
+              <li><a href="#fundraising" className="text-gray-400 hover:text-white transition-colors">Fundraising</a></li>
+              <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
@@ -78,12 +76,12 @@ const Footer = () => {
                 </div>
             </div>
             <div className="mt-4">
-              <Link
-                to="/donate"
+              <a
+                href="#donate"
                 className="block w-full bg-gradient-to-r from-pink-500 to-orange-500 text-white px-4 py-2 rounded-lg font-medium text-center hover:from-pink-600 hover:to-orange-600 transition-all"
               >
                 Donate Today
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -94,9 +92,9 @@ const Footer = () => {
               © 2024 NC Cancer Kids 1st. All rights reserved. Tax ID: 12-3456789
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
-              <Link to="/terms-of-service" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</Link>
-              <Link to="/annual-report" className="text-gray-400 hover:text-white text-sm transition-colors">Annual Report</Link>
+              <a href="#privacy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+              <a href="#terms" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+              <a href="#report" className="text-gray-400 hover:text-white text-sm transition-colors">Annual Report</a>
             </div>
           </div>
         </div>
